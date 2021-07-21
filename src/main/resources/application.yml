@@ -7,6 +7,12 @@ spring:
     hibernate.ddl-auto: create
     properties.hibernate.jdbc.lob.non_contexual_creation: true
 
+  servlet:
+    multipart:
+      max-file-size: 300MB
+      max-request-size: 300MB
+
+
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: hooman
@@ -15,3 +21,4 @@ spring:
     init:
       platform: postgres
       mode: always
+
