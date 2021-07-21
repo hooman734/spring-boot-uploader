@@ -42,6 +42,7 @@ public class UploadServiceImp implements UploadService {
         UploadFileModel uploadFileModel = new UploadFileModel();
         uploadFileModel.setName(multipartFile.getOriginalFilename());
         uploadFileModel.setType(multipartFile.getContentType());
+        uploadFileModel.setSize(multipartFile.getSize());
         try {
             uploadFileModel.setContext(multipartFile.getBytes());
         } catch (IOException e) {

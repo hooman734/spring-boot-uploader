@@ -22,6 +22,7 @@ public class UploadFileModel {
     private Long id;
     private String name;
     private String type;
+    private long size;
 
     @Lob
     private byte[] context;
