@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 
-@CrossOrigin
+@CrossOrigin(maxAge = 3600)
 @Controller
 @RequestMapping("api/v1")
 public class DemoUploaderController {
