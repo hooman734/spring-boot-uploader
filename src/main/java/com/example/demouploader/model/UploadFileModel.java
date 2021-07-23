@@ -6,6 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -17,9 +18,16 @@ import java.util.Objects;
 public class UploadFileModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private Long id;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator",
+            parameters = {@org.hibernate.annotations.Parameter(
+                    name = "uuid_gen_strategy_class",
+                    value = "org.hibernate.id.uuid.CustomVersionOneStrategy"
+            )})
+    @Column(name = "id", updatable = false, nullable = false)
+    private UUID id;
     private String name;
     private String type;
     private long size;
